@@ -14,9 +14,11 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu/xenial64"
   
-  config.vm.provision :shell, inline: 'wget --no-check-certificate https://raw.githubusercontent.com/knoxor/vagrant-provisioning/master/scripts/install-git.sh && bash install-git.sh'
-  config.vm.provision :shell, inline: 'wget --no-check-certificate https://raw.githubusercontent.com/knoxor/vagrant-provisioning/master/scripts/install-java8.sh && bash install-java8.sh'
-  config.vm.provision :shell, inline: 'wget --no-check-certificate https://raw.githubusercontent.com/knoxor/vagrant-provisioning/master/scripts/install-gradle.sh && bash install-gradle.sh'
+  config.vm.provision :shell, :path => 'scripts/install-git.sh'
+  config.vm.provision :shell, :path => 'scripts/install-java8.sh'
+  config.vm.provision :shell, :path => 'scripts/install-gradle.sh'
+#  config.vm.provision :shell, inline: 'wget --no-check-certificate https://raw.githubusercontent.com/knoxor/vagrant-provisioning/master/scripts/install-java8.sh && bash install-java8.sh'
+#  config.vm.provision :shell, inline: 'wget --no-check-certificate https://raw.githubusercontent.com/knoxor/vagrant-provisioning/master/scripts/install-gradle.sh && bash install-gradle.sh'
   
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
